@@ -1,32 +1,48 @@
-// src/pages/BMICalculator.jsx
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function BMICalculator() {
   const [weight, setWeight] = useState("");
   const [height, setHeight] = useState("");
   const [bmi, setBmi] = useState(null);
   const [category, setCategory] = useState("");
+  const [idealWeightRange, setIdealWeightRange] = useState("");
 
   const calculateBMI = (e) => {
     e.preventDefault();
 
-    if (!weight || !height) return;
+    if (!weight || !height) {
+      toast.error("Please enter valid weight and height!");
+      return;
+    }
 
     const heightInMeters = height / 100;
     const bmiValue = weight / (heightInMeters * heightInMeters);
     const rounded = bmiValue.toFixed(1);
     setBmi(rounded);
 
-    if (bmiValue < 18.5) setCategory("Underweight");
-    else if (bmiValue >= 18.5 && bmiValue < 25) setCategory("Normal weight");
-    else if (bmiValue >= 25 && bmiValue < 30) setCategory("Overweight");
-    else setCategory("Obese");
+    let categoryText = "";
+    if (bmiValue < 18.5) categoryText = "Underweight";
+    else if (bmiValue >= 18.5 && bmiValue < 25) categoryText = "Normal weight";
+    else if (bmiValue >= 25 && bmiValue < 30) categoryText = "Overweight";
+    else categoryText = "Obese";
+    setCategory(categoryText);
+
+    // Calculate ideal weight range based on healthy BMI (18.5 - 24.9)
+    const minWeight = (18.5 * heightInMeters ** 2).toFixed(1);
+    const maxWeight = (24.9 * heightInMeters ** 2).toFixed(1);
+    setIdealWeightRange(`${minWeight}kg - ${maxWeight}kg`);
+
+    toast.success("BMI Calculated Successfully!");
   };
 
   return (
-    <div className="max-w-lg mx-auto px-4 py-12">
-      <h2 className="text-3xl font-bold mb-6 text-center">BMI Calculator</h2>
+    <div className="max-w-lg mx-auto px-4 py-12 bg-gray-100 rounded-lg shadow-lg">
+      <h2 className="text-4xl font-bold mb-6 text-center text-primary">
+        BMI Calculator
+      </h2>
 
       <motion.form
         onSubmit={calculateBMI}
@@ -75,7 +91,7 @@ function BMICalculator() {
 
       {bmi && (
         <motion.div
-          className="mt-6 text-center"
+          className="mt-6 text-center bg-white p-4 rounded-lg shadow-md"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3 }}
@@ -84,8 +100,28 @@ function BMICalculator() {
           <p className="text-lg mt-2 text-gray-700">
             Category: <span className="font-bold text-primary">{category}</span>
           </p>
+
+          {/* Ideal Weight Range */}
+          <div className="mt-4">
+            <p className="text-sm text-gray-600">Ideal Weight Range:</p>
+            <p className="text-lg font-medium">{idealWeightRange}</p>
+          </div>
+
+          {/* BMI Chart */}
+          <div className="mt-6">
+            <h3 className="text-lg font-bold">BMI Categories</h3>
+            <ul className="text-sm text-gray-600">
+              <li>🔹 Underweight: BMI &lt; 18.5</li>
+              <li>🔹 Normal weight: BMI 18.5 - 24.9</li>
+              <li>🔹 Overweight: BMI 25 - 29.9</li>
+              <li>🔹 Obese: BMI ≥ 30</li>
+            </ul>
+          </div>
         </motion.div>
       )}
+
+      {/* Toast Notifications */}
+      <ToastContainer />
     </div>
   );
 }

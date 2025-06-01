@@ -44,7 +44,7 @@ export default function Navbar() {
 
       {/* Mobile menu dropdown */}
       {isOpen && (
-        <div className="md:hidden bg-white px-4 pb-4 space-y-2">
+        <div className="md:hidden bg-white px-4 pb-4 space-y-10 text-center">
           {navLinks.map((link) => (
             <NavLink
               key={link.name}

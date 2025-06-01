@@ -1,7 +1,22 @@
 import { motion } from "framer-motion";
 import { plans } from "../assets/assets";
+import { toast } from "react-toastify";
 
 const Pricing = () => {
+  const handleClick = (plan) => {
+    const phoneNumber = "2349012345678"; // ✅ Your WhatsApp number
+    const message = `Hello, I'm interested in the ${plan.title} (${plan.price} - ${plan.duration}) plan.`;
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+
+    toast.info("Redirecting to WhatsApp...", { toastId: "whatsapp-toast" });
+
+    // Redirect after short delay
+    setTimeout(() => {
+      window.open(whatsappURL, "_blank");
+    }, 1000);
+  };
+
   return (
     <div className="max-w-7xl mx-auto px-4 py-12">
       <motion.h2
@@ -37,7 +52,10 @@ const Pricing = () => {
                 </li>
               ))}
             </ul>
-            <button className="mt-6 w-full bg-primary text-white font-semibold py-2 rounded-xl hover:bg-primary/90 transition">
+            <button
+              onClick={() => handleClick(plan)}
+              className="mt-6 w-full bg-primary text-white font-semibold py-2 rounded-xl hover:bg-primary/90 transition"
+            >
               Choose Plan
             </button>
           </motion.div>

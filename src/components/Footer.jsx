@@ -1,7 +1,29 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { FaInstagram, FaFacebook, FaLinkedin } from "react-icons/fa";
+import emailjs from "@emailjs/browser";
+import { toast } from "react-toastify";
 
 function Footer() {
+  const [email, setEmail] = useState("");
+
+  const sendSubscriptionEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .send(
+        "service_ren6j8i",
+        "template_ejgfe8j",
+        { email },
+        "_N7JNtueDJBZFx2Y8"
+      )
+      .then(() => {
+        toast("Subscription successful! 🎉");
+        setEmail(""); // Clear input after submission
+      })
+      .catch((error) => console.error("EmailJS Error:", error));
+  };
+
   return (
     <footer className="bg-gray-900 text-white py-10 px-4">
       <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-10">
@@ -38,6 +60,32 @@ function Footer() {
               </Link>
             </li>
           </ul>
+        </div>
+
+        {/* Subscribe Form */}
+        <div>
+          <h3 className="font-semibold text-lg mb-3">
+            Subscribe to Our Newsletter
+          </h3>
+          <form
+            onSubmit={sendSubscriptionEmail}
+            className="flex flex-col gap-2"
+          >
+            <input
+              type="email"
+              placeholder="Enter your email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+              className="p-2 rounded bg-gray-800 text-white focus:outline-none"
+            />
+            <button
+              type="submit"
+              className="bg-primary text-white px-4 py-2 rounded hover:bg-primary/90 transition cursor-pointer"
+            >
+              Subscribe
+            </button>
+          </form>
         </div>
 
         {/* Socials */}
