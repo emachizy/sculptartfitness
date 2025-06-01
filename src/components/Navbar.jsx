@@ -3,16 +3,18 @@ import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { navLinks } from "../assets/assets";
+import LazyImage from "./LazyImage";
+import logo from "../assets/images/sculpt-art-logo1.jpeg"; // Adjust the path as needed
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
     <header className="bg-white shadow-md sticky top-0 z-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16 ">
         {/* Logo */}
         <NavLink to="/" className="text-xl font-bold text-primary">
-          SculptArt<span className="text-gray-600">Fitness</span>
+          <img src={logo} alt="logo " className="h-14" />
         </NavLink>
 
         {/* Desktop nav */}

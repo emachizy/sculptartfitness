@@ -1,11 +1,16 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import LazyImage from "../components/LazyImage";
+import Hero from "../components/Hero";
+import { InfiniteTestimonials } from "../components/InfiniteTestimonials";
+import BMIModal from "../components/BMIModal";
 
 function Home() {
   return (
     <div>
+      <BMIModal />
       {/* Hero */}
+      <Hero />
       <section className="bg-gray-100 py-16 px-4 md:px-10">
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-8 items-center">
           <motion.div
@@ -17,9 +22,8 @@ function Home() {
               Sculpt Your Body, Sculpt Your Life
             </h1>
             <p className="text-gray-600 mb-6">
-              Join SculptArtFitness — where goals turn into gains. Whether
-              you’re bulking, toning, or just getting started, we’ve got a plan
-              for you.
+              At Sculpt Art Fitness and Beauty Lounge we offer different range
+              of services to help our clients keep fit, feel good and look good.
             </p>
             <Link
               to="/pricing"
@@ -94,6 +98,8 @@ function Home() {
           Check Your BMI
         </Link>
       </section>
+      {/* Testimonial section */}
+      <InfiniteTestimonials />
     </div>
   );
 }

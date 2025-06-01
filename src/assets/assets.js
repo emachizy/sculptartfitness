@@ -1,4 +1,8 @@
 // import { Dumbbell, Users, Apple, Clock } from "lucide-react";
+import mobile_hero1 from "../assets/images/mobile/mobile-hero1.webp";
+import mobile_hero2 from "../assets/images/mobile/mobile-hero2.webp";
+import mobile_hero3 from "../assets/images/mobile/mobile-hero3.webp";
+// import gym_hero from "../assets/images/gym-hero.jpg";
 
 export const navLinks = [
   { name: "Home", path: "/" },
@@ -94,4 +98,11 @@ export const team = [
     img: "/images/david.jpg",
     desc: "Energizes group classes with HIIT, cardio, and community fun. Certified and motivating.",
   },
+];
+
+export const mobileHeroImg = [
+  mobile_hero1,
+  mobile_hero2,
+  mobile_hero3,
+  // gym_hero,
 ];

@@ -1,3 +1,5 @@
+"use client";
+
 import { motion } from "framer-motion";
 import { HeartPulse, Users, Flame, Target } from "lucide-react";
 import { team } from "../assets/assets";
@@ -28,7 +30,7 @@ const features = [
 
 function About() {
   return (
-    <div className="min-h-screen bg-white py-16 px-4 md:px-10">
+    <section className="min-h-screen bg-white py-16 px-4 md:px-10">
       {/* Intro */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
@@ -82,11 +84,57 @@ function About() {
         </p>
 
         <p className="mt-6 text-gray-600 text-base leading-relaxed">
-          Whether you’re a beginner or a competitive athlete, we welcome all who
+          Whether you're a beginner or a competitive athlete, we welcome all who
           are ready to put in the work. We believe fitness should be inclusive,
-          enjoyable, and sustainable — that’s the SculptArt way.
+          enjoyable, and sustainable — that's the SculptArt way.
         </p>
       </motion.div>
+
+      {/* CEO Section */}
+      <motion.div
+        className="mt-20 max-w-4xl mx-auto"
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.4, duration: 0.6 }}
+      >
+        <h2 className="text-3xl font-bold text-gray-800 mb-8 text-center">
+          Leadership
+        </h2>
+
+        <div className="bg-gradient-to-r from-gray-50 to-gray-100 rounded-2xl p-8 md:p-12">
+          <div className="flex flex-col md:flex-row items-center gap-8">
+            <motion.div whileHover={{ scale: 1.05 }} className="flex-shrink-0">
+              <LazyImage
+                src="/images/ceo.jpg"
+                alt="CEO Portrait, Moyosoreoluwa Alejo"
+                className="w-48 h-48 object-cover rounded-full border-4 border-white shadow-lg"
+              />
+            </motion.div>
+
+            <div className="flex-1 text-center md:text-left">
+              <h3 className="text-2xl font-bold text-gray-800 mb-2">
+                Moyosoreoluwa Alejo
+              </h3>
+              <p className="text-primary font-semibold mb-4">Founder & CEO</p>
+
+              <blockquote className="text-gray-700 text-lg leading-relaxed italic mb-4">
+                "Fitness transformed my life, and I founded SculptArtFitness to
+                share that transformation with others. Every person who walks
+                through our doors has unlimited potential — our job is to help
+                them unlock it."
+              </blockquote>
+
+              <p className="text-gray-600 text-sm">
+                With over 15 years in fitness and wellness, Sarah holds
+                certifications in personal training, nutrition coaching, and
+                sports psychology. She's passionate about creating inclusive
+                spaces where everyone can thrive.
+              </p>
+            </div>
+          </div>
+        </div>
+      </motion.div>
+
       {/* Team Section */}
       <motion.div
         className="mt-20 max-w-6xl mx-auto text-center"
@@ -121,7 +169,7 @@ function About() {
           ))}
         </div>
       </motion.div>
-    </div>
+    </section>
   );
 }
 
