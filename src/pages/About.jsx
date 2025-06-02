@@ -148,7 +148,7 @@ function About() {
           to support your fitness journey.
         </p>
 
-        <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-6">
+        <div className="grid sm:grid-cols-1 lg:grid-cols-4 md:grid-cols-2 gap-6">
           {team.map((member, i) => (
             <motion.div
               key={i}
