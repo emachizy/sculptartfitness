@@ -107,7 +107,7 @@ function About() {
               <LazyImage
                 src="/images/ceo.jpg"
                 alt="CEO Portrait, Moyosoreoluwa Alejo"
-                className="w-48 h-48 object-cover rounded-full border-4 border-white shadow-lg"
+                className="w-38 h-38 md:w-48 md:h-48 object-cover rounded-full border-4 border-white shadow-lg"
               />
             </motion.div>
 

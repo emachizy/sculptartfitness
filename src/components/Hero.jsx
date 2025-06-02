@@ -19,7 +19,7 @@ const Hero = () => {
     </span>,
   ];
   return (
-    <div className="relative h-[90vh] w-full">
+    <div className="relative h-[50vh] md:h-[90vh] w-full">
       {/* Background Image Slider */}
       <Swiper
         modules={[EffectFade, Autoplay, EffectFlip]}
@@ -34,7 +34,7 @@ const Hero = () => {
             <img
               src={src}
               alt={`slide-${index}`}
-              className="object-cover w-full h-full"
+              className="object-cover w-full h-full md:min-h-screen"
             />
           </SwiperSlide>
         ))}
@@ -47,7 +47,7 @@ const Hero = () => {
         transition={{ duration: 0.8 }}
         className="absolute inset-0 z-20 flex items-center justify-center px-4"
       >
-        <div className="bg-white/10 backdrop-blur-sm border border-white/30 shadow-xl rounded-2xl px-6 py-10 text-center text-white max-w-3xl w-full">
+        <div className="bg-white/10 backdrop-blur-sm border border-white/30 shadow-xl rounded-2xl px-6 py-10 text-center text-white max-w-2xl w-full">
           <motion.h1
             className="text-3xl md:text-5xl font-bold mb-4"
             initial={{ opacity: 0 }}
