@@ -18,8 +18,9 @@ const Hero = () => {
       Elevate Your Strength
     </span>,
   ];
+
   return (
-    <div className="relative h-[90vh] w-full">
+    <div className="relative w-full">
       {/* Background Image Slider */}
       <Swiper
         modules={[EffectFade, Autoplay, EffectFlip]}
@@ -35,6 +36,7 @@ const Hero = () => {
               src={src}
               alt={`slide-${index}`}
               className="object-cover w-full h-full"
+              loading="lazy"
             />
           </SwiperSlide>
         ))}
@@ -49,7 +51,7 @@ const Hero = () => {
       >
         <div className="bg-white/10 backdrop-blur-sm border border-white/30 shadow-xl rounded-2xl px-6 py-10 text-center text-white max-w-3xl w-full">
           <motion.h1
-            className="text-3xl md:text-5xl font-bold mb-4"
+            className="text-xl sm:text-3xl md:text-5xl font-bold mb-4"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1.2, duration: 1 }}
@@ -64,11 +66,11 @@ const Hero = () => {
               delaySpeed={1500}
             />
           </motion.h1>
-          <p className="text-lg md:text-xl mb-6">
+          <p className="text-base sm:text-lg md:text-xl mb-6">
             Sculpt your body, strengthen your mind. Join us today.
           </p>
-          <button className="bg-primary hover:bg-primary/90 transition px-6 py-3 rounded-full font-semibold text-white cursor-pointer">
-            Join Now
+          <button className="bg-transparent w-full max-w-xs shadow-2xl shadow-primary hover:backdrop-blur-3xl transition px-6 py-3 rounded-md font-semibold text-white cursor-pointer">
+            Start Today
           </button>
         </div>
       </motion.div>

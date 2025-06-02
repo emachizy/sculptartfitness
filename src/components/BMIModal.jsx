@@ -1,6 +1,6 @@
 import { Dialog, Transition } from "@headlessui/react";
 import { Fragment, useEffect, useState } from "react";
-import BMICalculator from "../pages/BMICalculator";
+import BMICalculator from "./BMICalculator";
 // import BMICalculator from "./BMICalculator"; // Adjust path as needed
 
 const BMIModal = () => {

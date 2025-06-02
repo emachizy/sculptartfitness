@@ -9,10 +9,10 @@ import "swiper/css";
 import "swiper/css/effect-fade"; // For fade transitions
 
 createRoot(document.getElementById("root")).render(
-  <BrowserRouter>
-    <StrictMode>
+  <StrictMode>
+    <BrowserRouter>
       <App />
       <ToastContainer position="top-right" autoClose={3000} />
-    </StrictMode>
-  </BrowserRouter>
+    </BrowserRouter>
+  </StrictMode>
 );

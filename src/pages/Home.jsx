@@ -4,26 +4,27 @@ import LazyImage from "../components/LazyImage";
 import Hero from "../components/Hero";
 import { InfiniteTestimonials } from "../components/InfiniteTestimonials";
 import BMIModal from "../components/BMIModal";
+import Programs from "../components/Programs";
 
 function Home() {
   return (
     <div>
-      <BMIModal />
+      {/* <BMIModal /> */}
       {/* Hero */}
       <Hero />
       <section className="bg-gray-100 py-16 px-4 md:px-10">
-        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-8 items-center">
+        <div className="max-w-7xl mx-auto grid md:grid-cols-2 grid-cols-1 gap-8 items-center">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <h1 className="text-4xl font-bold mb-4">
+            <h1 className="text-2xl sm:text-4xl font-bold mb-4">
               Sculpt Your Body, Sculpt Your Life
             </h1>
-            <p className="text-gray-600 mb-6">
-              At Sculpt Art Fitness and Beauty Lounge we offer different range
-              of services to help our clients keep fit, feel good and look good.
+            <p className="text-gray-600 text-sm sm:text-base mb-6">
+              At Sculpt Art Fitness and Beauty Lounge, we offer a wide range of
+              services to help our clients stay fit, feel good, and look good.
             </p>
             <Link
               to="/pricing"
@@ -34,9 +35,9 @@ function Home() {
           </motion.div>
 
           <LazyImage
-            src="/images/gym-hero.jpg" // Replace with your own
+            src="/images/gym-hero.webp"
             alt="Gym Hero"
-            className="w-full rounded-xl shadow-lg"
+            className="w-full rounded-xl shadow-lg object-cover"
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
@@ -47,8 +48,10 @@ function Home() {
       {/* About */}
       <section className="py-16 px-4 md:px-10 bg-white">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-4">Why SculptArtFitness?</h2>
-          <p className="text-gray-600">
+          <h2 className="text-2xl sm:text-3xl font-bold mb-4">
+            Why SculptArtFitness?
+          </h2>
+          <p className="text-gray-600 text-sm sm:text-base">
             With top-tier equipment, experienced trainers, and personalized
             plans, we help you stay consistent, strong, and motivated. Our
             community-driven gym is built to support your fitness lifestyle —
@@ -57,11 +60,16 @@ function Home() {
         </div>
       </section>
 
+      {/* Training Programs */}
+      <Programs />
+
       {/* Services */}
       <section className="bg-gray-100 py-16 px-4 md:px-10">
         <div className="max-w-6xl mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-10">What We Offer</h2>
-          <div className="grid md:grid-cols-3 gap-6">
+          <h2 className="text-2xl sm:text-3xl font-bold mb-10">
+            What We Offer
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
             {[
               "24/7 Gym Access",
               "Group Classes",
@@ -87,8 +95,10 @@ function Home() {
 
       {/* CTA */}
       <section className="bg-primary text-white py-16 px-4 md:px-10 text-center">
-        <h2 className="text-3xl font-bold mb-4">Ready to Transform?</h2>
-        <p className="mb-6">
+        <h2 className="text-2xl sm:text-3xl font-bold mb-4">
+          Ready to Transform?
+        </h2>
+        <p className="text-sm sm:text-base mb-6">
           Start your journey with us today — your future self will thank you.
         </p>
         <Link
@@ -98,6 +108,7 @@ function Home() {
           Check Your BMI
         </Link>
       </section>
+
       {/* Testimonial section */}
       <InfiniteTestimonials />
     </div>

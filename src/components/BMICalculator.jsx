@@ -106,17 +106,6 @@ function BMICalculator() {
             <p className="text-sm text-gray-600">Ideal Weight Range:</p>
             <p className="text-lg font-medium">{idealWeightRange}</p>
           </div>
-
-          {/* BMI Chart */}
-          <div className="mt-6">
-            <h3 className="text-lg font-bold">BMI Categories</h3>
-            <ul className="text-sm text-gray-600">
-              <li>🔹 Underweight: BMI &lt; 18.5</li>
-              <li>🔹 Normal weight: BMI 18.5 - 24.9</li>
-              <li>🔹 Overweight: BMI 25 - 29.9</li>
-              <li>🔹 Obese: BMI ≥ 30</li>
-            </ul>
-          </div>
         </motion.div>
       )}
 

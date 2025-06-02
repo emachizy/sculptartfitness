@@ -11,7 +11,7 @@ function LazyImage({ src, alt, className }) {
   });
 
   return (
-    <div ref={ref} className="relative overflow-hidden rounded-lg">
+    <div ref={ref} className="relative overflow-hidden">
       {/* Placeholder */}
       {!loaded && inView && (
         <div className="absolute inset-0 bg-gray-200 animate-pulse rounded-lg" />
