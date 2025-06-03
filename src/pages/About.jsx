@@ -31,7 +31,7 @@ const features = [
 function About() {
   return (
     <section className="min-h-screen bg-white ">
-      <div className="relative h-[30vh] md:h-[60vh] w-full">
+      <div className="relative h-[30vh] md:h-[60vh] w-full ">
         {/* Background Image Slider */}
 
         <img
@@ -45,7 +45,7 @@ function About() {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="absolute inset-0 z-20 flex items-center justify-center px-4"
+          className="absolute inset-0 z-20 flex items-center justify-center px-4 "
         >
           <div className="bg-white/10 backdrop-blur-sm border border-white/30 shadow-xl rounded-2xl px-6 py-10 text-center text-white max-w-md w-full">
             <p className="text-lg md:text-xl mb-6 font-bold">About Us</p>

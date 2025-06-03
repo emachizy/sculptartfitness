@@ -85,6 +85,7 @@ function BMICalculator() {
               className="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary"
               min="1"
               required
+              placeholder="e.g. 170"
             />
           </div>
 

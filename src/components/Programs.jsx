@@ -107,7 +107,7 @@ const Programs = () => {
                 {/* Text Section */}
                 <motion.div
                   className={`w-full h-full md:w-2/5 text-start p-6 flex flex-col justify-center items-start ${
-                    index % 2 === 1 ? "bg-red-500" : "bg-primary"
+                    index % 2 === 1 ? "bg-black" : "bg-primary"
                   }`}
                   initial={{ opacity: 0, x: textInitialX }}
                   animate={{ opacity: 1, x: 0 }}
