@@ -6,6 +6,9 @@ import "react-toastify/dist/ReactToastify.css";
 function BMICalculator() {
   const [weight, setWeight] = useState("");
   const [height, setHeight] = useState("");
+  const [age, setAge] = useState("");
+  const [sex, setSex] = useState("");
+
   const [bmi, setBmi] = useState(null);
   const [category, setCategory] = useState("");
   const [idealWeightRange, setIdealWeightRange] = useState("");
@@ -30,10 +33,17 @@ function BMICalculator() {
     else categoryText = "Obese";
     setCategory(categoryText);
 
-    // Calculate ideal weight range based on healthy BMI (18.5 - 24.9)
     const minWeight = (18.5 * heightInMeters ** 2).toFixed(1);
     const maxWeight = (24.9 * heightInMeters ** 2).toFixed(1);
     setIdealWeightRange(`${minWeight}kg - ${maxWeight}kg`);
+
+    setWeight("");
+    setHeight("");
+    setAge("");
+    setSex("");
+    // setBmi(null);
+    // setCategory("");
+    // setIdealWeightRange("");
 
     toast.success("BMI Calculated Successfully!");
   };
@@ -49,32 +59,64 @@ function BMICalculator() {
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.4 }}
       >
-        <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">
-            Weight (kg)
-          </label>
-          <input
-            type="number"
-            value={weight}
-            onChange={(e) => setWeight(e.target.value)}
-            className="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary"
-            min="1"
-            required
-          />
-        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              Weight (kg)
+            </label>
+            <input
+              type="number"
+              value={weight}
+              onChange={(e) => setWeight(e.target.value)}
+              className="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary"
+              min="1"
+              required
+            />
+          </div>
 
-        <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">
-            Height (cm)
-          </label>
-          <input
-            type="number"
-            value={height}
-            onChange={(e) => setHeight(e.target.value)}
-            className="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary"
-            min="1"
-            required
-          />
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              Height (cm)
+            </label>
+            <input
+              type="number"
+              value={height}
+              onChange={(e) => setHeight(e.target.value)}
+              className="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary"
+              min="1"
+              required
+            />
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              Age
+            </label>
+            <input
+              type="number"
+              value={age}
+              onChange={(e) => setAge(e.target.value)}
+              className="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary"
+              min="0"
+              placeholder="Optional"
+            />
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              Sex
+            </label>
+            <select
+              value={sex}
+              onChange={(e) => setSex(e.target.value)}
+              className="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary"
+            >
+              <option value="">Select</option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
         </div>
 
         <motion.button
@@ -99,7 +141,6 @@ function BMICalculator() {
             Category: <span className="font-bold text-primary">{category}</span>
           </p>
 
-          {/* Ideal Weight Range */}
           <div className="mt-4">
             <p className="text-sm text-gray-600">Ideal Weight Range:</p>
             <p className="text-lg font-medium">{idealWeightRange}</p>
@@ -107,7 +148,6 @@ function BMICalculator() {
         </motion.div>
       )}
 
-      {/* Toast Notifications */}
       <ToastContainer />
     </div>
   );

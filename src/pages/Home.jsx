@@ -9,7 +9,7 @@ import Programs from "../components/Programs";
 function Home() {
   return (
     <div>
-      {/* <BMIModal /> */}
+      <BMIModal />
       {/* Hero */}
       <Hero />
       <section className="bg-gray-100 py-16 px-4 md:px-10">
