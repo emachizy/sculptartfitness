@@ -5,6 +5,7 @@ import { Typewriter } from "react-simple-typewriter";
 import "swiper/css";
 import "swiper/css/effect-fade";
 import { mobileHeroImg } from "../assets/assets";
+import { Link } from "react-router-dom";
 
 const Hero = () => {
   const coloredWords = [
@@ -58,6 +59,7 @@ const Hero = () => {
               words={coloredWords.map((el) => el.props.children)} // Extract pure text
               loop={true}
               cursor
+              cursorColor="#da9100"
               cursorStyle="_"
               typeSpeed={80}
               deleteSpeed={50}
@@ -67,9 +69,12 @@ const Hero = () => {
           <p className="text-lg md:text-xl mb-6">
             Sculpt your body, strengthen your mind. Join us today.
           </p>
-          <button className="bg-transparent shadow-2xl shadow-primary hover:backdrop-blur-3xl transition px-6 py-3 rounded-md font-semibold text-white cursor-pointer">
+          <Link
+            to="/bmi"
+            className="bg-transparent shadow-2xl shadow-primary hover:backdrop-blur-3xl transition px-6 py-3 rounded-md font-semibold text-white cursor-pointer"
+          >
             Start Today
-          </button>
+          </Link>
         </div>
       </motion.div>
     </div>

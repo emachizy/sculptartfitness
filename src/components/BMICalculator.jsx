@@ -39,14 +39,12 @@ function BMICalculator() {
   };
 
   return (
-    <div className="max-w-lg mx-auto px-4 py-12 bg-gray-100 rounded-lg shadow-lg">
-      <h2 className="text-4xl font-bold mb-6 text-center text-primary">
-        BMI Calculator
-      </h2>
+    <div className="w-full md:max-w-lg mx-auto px-4 py-12 bg-white rounded-lg shadow-md">
+      <h2 className="text-4xl font-bold mb-6 text-primary">BMI Calculator</h2>
 
       <motion.form
         onSubmit={calculateBMI}
-        className="bg-white shadow-md p-6 rounded-xl space-y-4"
+        className="bg-white shadow-md p-6 space-y-4"
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.4 }}

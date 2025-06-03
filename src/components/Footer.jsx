@@ -7,6 +7,11 @@ import { toast } from "react-toastify";
 function Footer() {
   const [email, setEmail] = useState("");
 
+  const hour = new Date().getHours();
+  const openHour = 5;
+  const closeHour = 21;
+  const isOpen = hour >= openHour && hour <= closeHour;
+
   const sendSubscriptionEmail = (e) => {
     e.preventDefault();
 
@@ -40,22 +45,22 @@ function Footer() {
           <h3 className="font-semibold text-lg mb-3">Quick Links</h3>
           <ul className="space-y-2 text-sm text-gray-300">
             <li>
-              <Link to="/" className="hover:text-white">
+              <Link to="/" className="hover:text-primary">
                 Home
               </Link>
             </li>
             <li>
-              <Link to="/pricing" className="hover:text-white">
+              <Link to="/pricing" className="hover:text-primary">
                 Pricing
               </Link>
             </li>
             <li>
-              <Link to="/bmi" className="hover:text-white">
+              <Link to="/bmi" className="hover:text-primary">
                 BMI Calculator
               </Link>
             </li>
             <li>
-              <Link to="/contact" className="hover:text-white">
+              <Link to="/contact" className="hover:text-primary">
                 Contact
               </Link>
             </li>
@@ -93,7 +98,7 @@ function Footer() {
           <h3 className="font-semibold text-lg mb-3">Connect with Us</h3>
           <div className="flex gap-4 text-xl">
             <a
-              href="https://facebook.com"
+              href="https://web.facebook.com/sculptartfitness"
               target="_blank"
               rel="noreferrer"
               className="hover:text-white"
@@ -101,7 +106,7 @@ function Footer() {
               <FaFacebook />
             </a>
             <a
-              href="https://instagram.com"
+              href="https://www.instagram.com/sculpt_artfitness/?locale=es_US&hl=en"
               target="_blank"
               rel="noreferrer"
               className="hover:text-white"
@@ -119,7 +124,17 @@ function Footer() {
           </div>
         </div>
       </div>
-
+      {/* isOpen notice */}
+      {isOpen ? (
+        <p className="text-center text-lg mt-6 text-white">
+          We're happy to welcome you between {openHour}:00 and {closeHour}:00.
+        </p>
+      ) : (
+        <p className="text-center text-lg mt-6 text-red-500 animate-pulse">
+          Sorry, we're currently closed. Our hours are from {openHour}:30 to{" "}
+          {closeHour}:00.
+        </p>
+      )}
       {/* Copyright */}
       <div className="mt-10 text-center text-gray-500 text-sm border-t border-gray-700 pt-4">
         © {new Date().getFullYear()} SculptArtFitness. All rights reserved.

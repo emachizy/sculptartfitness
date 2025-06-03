@@ -12,7 +12,7 @@ const categories = [
 const BMICategories = () => {
   return (
     <div className="bg-white rounded-xl shadow-md p-6 w-full overflow-x-auto">
-      <h2 className="text-2xl font-semibold mb-4 text-primary">
+      <h2 className="text-4xl font-semibold mb-4 text-primary">
         BMI Categories
       </h2>
       <table className="w-full table-auto text-left border-collapse">

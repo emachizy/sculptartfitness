@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #fec615; /* SculptArtFitness brand color */
+  --color-primary: #da9100; /* SculptArtFitness brand color */
 }
 
 @keyframes scrollX {
