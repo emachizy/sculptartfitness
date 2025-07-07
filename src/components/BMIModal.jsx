@@ -1,6 +1,7 @@
 import { Dialog, Transition } from "@headlessui/react";
 import { Fragment, useEffect, useState } from "react";
 import BMICalculator from "./BMICalculator";
+import { AiOutlineClose } from "react-icons/ai";
 // import BMICalculator from "./BMICalculator"; // Adjust path as needed
 
 const BMIModal = () => {
@@ -40,10 +41,16 @@ const BMIModal = () => {
             leaveFrom="opacity-100 translate-y-0"
             leaveTo="opacity-0 translate-y-4"
           >
-            <Dialog.Panel className="w-full max-w-xl transform overflow-hidden rounded-2xl bg-white shadow-xl transition-all p-6">
+            <Dialog.Panel className="relative w-full max-w-xl transform overflow-hidden rounded-2xl bg-white shadow-xl transition-all p-6">
               <Dialog.Title className="text-xl font-bold text-gray-800 mb-2 text-center">
                 BMI Calculator
               </Dialog.Title>
+
+              <AiOutlineClose
+                className="absolute top-4 right-6 text-4xl text-primary cursor-pointer"
+                onClick={() => setIsOpen(false)}
+              />
+
               <BMICalculator />
             </Dialog.Panel>
           </Transition.Child>
