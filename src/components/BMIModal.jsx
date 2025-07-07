@@ -47,7 +47,7 @@ const BMIModal = () => {
               </Dialog.Title>
 
               <AiOutlineClose
-                className="absolute top-4 right-6 text-4xl text-primary cursor-pointer"
+                className="absolute top-4 right-6 text-2xl text-primary cursor-pointer"
                 onClick={() => setIsOpen(false)}
               />
 
